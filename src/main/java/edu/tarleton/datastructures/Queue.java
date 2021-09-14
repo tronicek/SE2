@@ -35,6 +35,9 @@ public class Queue {
     }
     
     public int peek() {
+        if (elems == 0) {
+            throw new QueueException("Queue is empty");
+        }
         return values[head];
     }
     
