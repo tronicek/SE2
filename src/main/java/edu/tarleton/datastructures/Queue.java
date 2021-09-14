@@ -16,12 +16,18 @@ public class Queue {
     }
     
     public void append(int value) {
+        if (elems == values.length) {
+            throw new QueueException("Queue is full");
+        }
         values[tail] = value;
         tail = (tail + 1) % values.length;
         elems++;
     }
     
     public int get() {
+        if (elems == 0) {
+            throw new QueueException("Queue is empty");
+        }
         int v = values[head];
         head = (head + 1) % values.length;
         elems--;
